@@ -1,5 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './App.css'
+import VendorLogin from './pages/vendor/VendorLogin'
+import VendorSignup from './pages/vendor/VendorSignup'
+import Discretion from './pages/discretion/Discretion'
+import VendorPrivacy from './pages/privacyAgreement/VendorPrivacy'
+import CustomerLogin from './pages/customer/CustomerLogin'
+import CustomerSignup from './pages/customer/CustomerSignup'
 import LandingPage from "./components/LandingPage";
 import VendorLayouts from "./layouts/VendorLayout";
 import VendorOverview from "./pages/dashboards/vendor-dashboard/VendorOverview";
@@ -9,6 +16,7 @@ import CustomerDashboard from "./layouts/CustomerLayout";
 import CustomerOverview from "./pages/dashboards/customer-dashboard/CustomerOverview";
 import SingleAd from "./pages/dashboards/customer-dashboard/SingleAd";
 import About from "./pages/about.jsx/About";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +49,32 @@ function App() {
     },
 
     {
+
+      path: '/discretion',
+      element: <Discretion />
+
+    },
+    {
+      path: '/vendor-Login',
+      element: <VendorLogin />
+    },
+    {
+      path: '/vendor-Signup',
+      element: <VendorSignup />
+    },
+    {
+      path: "/privacy",
+      element: <VendorPrivacy />
+    },
+    {
+      path:"/customer-Login",
+      element:<CustomerLogin/>
+    },
+    {
+      path:"/customer-Signup",
+      element:<CustomerSignup/>,
+    },
+    {
       path: "/customer-dashboard",
       element: <CustomerDashboard />,
       children: [
@@ -56,7 +90,11 @@ function App() {
     },
   ]);
 
+
+
+
   return <RouterProvider router={router} />;
+
 }
 
 export default App;
