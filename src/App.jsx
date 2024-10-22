@@ -12,10 +12,10 @@ import VendorLayouts from "./layouts/VendorLayout";
 import VendorOverview from "./pages/dashboards/vendor-dashboard/VendorOverview";
 import VendorPost from "./pages/dashboards/vendor-dashboard/VendorPost";
 import VendorEdit from "./pages/dashboards/vendor-dashboard/VendorEdit";
-import CustomerDashboard from "./layouts/CustomerLayout";
-import CustomerOverview from "./pages/dashboards/customer-dashboard/CustomerOverview";
-import SingleAd from "./pages/dashboards/customer-dashboard/SingleAd";
+import CustomerOverview from "./pages/customer/CustomerOverview";
+import SingleAd from "./pages/customer/SingleAd";
 import About from "./pages/about.jsx/About";
+import CustomerDashboard from './layouts/CustomerLayout'
 
 
 function App() {
@@ -76,7 +76,7 @@ function App() {
     },
     {
       path: "/customer-dashboard",
-      element: <CustomerDashboard />,
+      element: <CustomerDashboard/>,
       children: [
         {
           index: true,
