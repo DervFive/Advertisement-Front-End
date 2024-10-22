@@ -12,7 +12,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color: #f3f4f683;
+  background-color: #f3f4f6;
 }
 
 .landing-page {
@@ -51,4 +51,11 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+/* this is where I style the customer featured products */
+.hero {
+  background-image: url("./assets/images/skin-care-featured.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

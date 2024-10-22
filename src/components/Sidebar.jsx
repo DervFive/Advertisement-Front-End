@@ -12,14 +12,14 @@ const Sidebar = () => {
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
-      <div className=" logo flex justify-center flex-col items-center gap-2">
-        <div className=" w-[40%] mx-auto">
+      <div className= {`logo flex justify-center flex-col items-center gap-2 ${isExpanded ? "block" : "hidden"}`}>
+        {/* <div className=" w-[40%] mx-auto">
           <img
             className={`max-w-full rounded-full`}
             src={logo}
             alt="TradeWave logo"
           />
-        </div>
+        </div> */}
         <p className={`${isExpanded ? "block" : "hidden"}`}>
           {" "}
           <span className="text-3xl">T</span>rade{" "}
@@ -34,7 +34,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-solid fa-house"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Home</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 `}>Home</p>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-brands fa-product-hunt"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Products</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>Products</p>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-solid fa-cart-flatbed-suitcase"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Orders</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>Orders</p>
         </div>
       </div>
 
@@ -61,7 +61,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-solid fa-folder-plus"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Add Product</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>Add Product</p>
         </div>
       </div>
 
@@ -70,7 +70,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-solid fa-gift"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Coupons</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>Coupons</p>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-solid fa-thumbs-up"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Reviews</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>Reviews</p>
         </div>
       </div>
 
@@ -88,7 +88,7 @@ const Sidebar = () => {
           <span className="">
             <i class="fa-solid fa-gear"></i>
           </span>
-          <p className={`${isExpanded ? "block" : "hidden"} ml-2`}>Settings</p>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>Settings</p>
         </div>
       </div>
 
@@ -101,7 +101,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <p>Log Out</p>
+        <p className={`${isExpanded ? "block" : "hidden"}`}>Log Out</p>
     </div>
   );
 };
