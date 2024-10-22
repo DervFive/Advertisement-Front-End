@@ -2,7 +2,7 @@
 
 const SingleAd = () => {
   return (
-    <div>SingleAd</div>
+    <></>
   )
 }
 

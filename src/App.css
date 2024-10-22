@@ -38,6 +38,20 @@ body {
   font-style: normal;
 }
 
+
+.discretion{
+  background-image: url("./assets/images/discretion.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.vendor-post-img{
+  background-image: url("./assets/images/addproduct.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 /* this is where I style the customer featured products */
 .hero {
   background-image: url("./assets/images/skin-care-featured.jpg");
