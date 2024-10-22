@@ -37,3 +37,18 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
+
+.discretion{
+  background-image: url("./assets/images/discretion.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.vendor-post-img{
+  background-image: url("./assets/images/addproduct.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

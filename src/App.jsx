@@ -18,6 +18,7 @@ import SingleAd from "./pages/dashboards/customer-dashboard/SingleAd";
 import About from "./pages/about.jsx/About";
 
 
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -62,6 +63,7 @@ function App() {
       path: '/vendor-Signup',
       element: <VendorSignup />
     },
+   
     {
       path: "/privacy",
       element: <VendorPrivacy />
@@ -70,6 +72,7 @@ function App() {
       path:"/customer-Login",
       element:<CustomerLogin/>
     },
+    
     {
       path:"/customer-Signup",
       element:<CustomerSignup/>,

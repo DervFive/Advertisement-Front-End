@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <div
       className={`sidebar flex flex-col gap-2 h-screen w-[15%] px-2 py-6 fixed overflow-auto ${
-        isExpanded ? "w-[15%]" : "w-16"
+        isExpanded ? "w-[15%]" : "w-[5%]"
       } transition-width duration-300 ease-in-out relative scrollbar-thin scrollbar-thumb-[#ebd451e1] scrollbar-track-gray-300 `}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
