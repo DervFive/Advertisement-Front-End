@@ -19,7 +19,7 @@ const VendorSignup = () => {
 
                         <div className="flex gap-4">
                             <div>
-                                <span>First Name</span>
+                                <span>Full Name</span>
                                 <div className=" flex justify-start items-center gap-1 w-full bg-white border">
                                     <span className="font-bold ml-2"><i class="fa-regular fa-user"></i></span>
                                     <input
@@ -27,18 +27,18 @@ const VendorSignup = () => {
                                         type="text"
                                         placeholder="Enter name"
                                         required
-                                        name="title" />
+                                        name="name" />
                                 </div>
                             </div>
 
                             <div>
-                                <span className=" ">Last Name</span>
+                                <span className=" ">Phone</span>
                                 <div className=" flex justify-start items-center gap-2 w-full  bg-white borther border">
                                     <span className="ml-2 font-bold"><i class="fa-regular fa-user"></i></span>
                                     <input
                                         className="w-[95%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                                        type="text"
-                                        placeholder="Enter name"
+                                        type="number"
+                                        placeholder="Enter number"
                                         required
                                         name="name" />
                                 </div>
@@ -46,7 +46,7 @@ const VendorSignup = () => {
                         </div>
 
 
-                        <span>UserName</span>
+                        <span>Business Name</span>
 
                         <div className=" flex justify-start items-center gap-2 w-full  bg-white border">
 
@@ -54,6 +54,19 @@ const VendorSignup = () => {
                             <input
                                 className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
                                 type="text"
+                                placeholder="Enter Name"
+                                required
+                                name="name" />
+                                /</div>
+
+                        <span>Location</span>
+
+                        <div className=" flex justify-start items-center gap-2 w-full  bg-white border">
+
+                            <span className="font-bold  ml-2"><i class="fa-regular fa-circle-user"></i></span>
+                            <input
+                                className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
+                                type=""
                                 placeholder="Enter Name"
                                 required
                                 name="name" />
@@ -76,6 +89,14 @@ const VendorSignup = () => {
                                 className="w-[90%]  bg-transparent rounded-lg p-2 focus:ring-2 focus:ring-gray-500"
                                 type="text"
                                 placeholder="Enter password"
+                                required
+                                name="password" />
+                        </div>
+                        <div className=" flex justify-start items-center gap-2 w-full  bg-white border ">
+                            <input
+                                className="w-[90%]  bg-transparent rounded-lg p-2 focus:ring-2 focus:ring-gray-500"
+                                type="text"
+                                placeholder="Confirm password"
                                 required
                                 name="password" />
                         </div>

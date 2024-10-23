@@ -2,6 +2,20 @@ import { Link } from "react-router-dom"
 
 
 const VendorLogin = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target)
+    const email = formData.get("email")
+    const password = formData.get("password")
+    // console.log("Email:",email,"password",
+    const response = await apiSignin({email, password})
+    // console.log(response.data);
+    
+     if (response.status===200){}
+         localStorage.setItem("token",response.data.accessToken)
+
+      };
+          ;  
   return (
     <div className="flex flex-col justify-center items-center h-screen text-xs">
       <div className="max-w-sm w-full bg-white shadow-lg rounded-lg p-6 border border-black">
@@ -17,9 +31,9 @@ const VendorLogin = () => {
             <input
               className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500"
               type="text"
-              placeholder="Email/username"
+              placeholder="Email/phone"
               required
-              name="email/username" />
+              name="email/phone" />
             <div>
               <input
                 className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500"
