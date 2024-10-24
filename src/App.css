@@ -59,3 +59,11 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+.log-in {
+  background-image: url('/src/assets/images/coding.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}

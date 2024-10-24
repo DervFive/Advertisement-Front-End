@@ -1,12 +1,11 @@
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './App.css'
-import VendorLogin from './pages/vendor/VendorLogin'
-import VendorSignup from './pages/vendor/VendorSignup'
-import Discretion from './pages/discretion/Discretion'
-import VendorPrivacy from './pages/privacyAgreement/VendorPrivacy'
-import CustomerLogin from './pages/customer/CustomerLogin'
-import CustomerSignup from './pages/customer/CustomerSignup'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import VendorLogin from "./pages/vendor/VendorLogin";
+import VendorSignup from "./pages/vendor/VendorSignup";
+import Discretion from "./pages/discretion/Discretion";
+import VendorPrivacy from "./pages/privacyAgreement/VendorPrivacy";
+import CustomerLogin from "./pages/customer/CustomerLogin";
+import CustomerSignup from "./pages/customer/CustomerSignup";
 import LandingPage from "./components/LandingPage";
 import VendorLayouts from "./layouts/VendorLayout";
 import VendorOverview from "./pages/dashboards/vendor-dashboard/VendorOverview";
@@ -15,9 +14,10 @@ import VendorEdit from "./pages/dashboards/vendor-dashboard/VendorEdit";
 import CustomerOverview from "./pages/customer/CustomerOverview";
 import SingleAd from "./pages/customer/SingleAd";
 import About from "./pages/about.jsx/About";
-import CustomerDashboard from './layouts/CustomerLayout'
-
-
+import CustomerDashboard from "./layouts/CustomerLayout";
+import VendorAdAll from "./pages/dashboards/vendor-dashboard/vendorProducts/VendorAdAll";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,40 +46,42 @@ function App() {
           path: "about",
           element: <About />,
         },
+        {
+          path: "vendor-ADs",
+          element: <VendorAdAll />,
+        },
       ],
     },
 
     {
-
-      path: '/discretion',
-      element: <Discretion />
-
+      path: "/discretion",
+      element: <Discretion />,
     },
     {
-      path: '/vendor-Login',
-      element: <VendorLogin />
+      path: "/vendor-Login",
+      element: <VendorLogin />,
     },
     {
-      path: '/vendor-Signup',
-      element: <VendorSignup />
+      path: "/vendor-Signup",
+      element: <VendorSignup />,
     },
-   
+
     {
       path: "/privacy",
-      element: <VendorPrivacy />
+      element: <VendorPrivacy />,
     },
     {
-      path:"/customer-Login",
-      element:<CustomerLogin/>
+      path: "/customer-Login",
+      element: <CustomerLogin />,
     },
-    
+
     {
-      path:"/customer-Signup",
-      element:<CustomerSignup/>,
+      path: "/customer-Signup",
+      element: <CustomerSignup />,
     },
     {
       path: "/customer-dashboard",
-      element: <CustomerDashboard/>,
+      element: <CustomerDashboard />,
       children: [
         {
           index: true,
@@ -93,11 +95,12 @@ function App() {
     },
   ]);
 
-
-
-
-  return <RouterProvider router={router} />;
-
+  return (
+    <>
+      <ToastContainer />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

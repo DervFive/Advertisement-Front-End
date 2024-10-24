@@ -12,19 +12,14 @@ const Sidebar = () => {
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
-      <div className= {`logo flex justify-center flex-col items-center gap-2 ${isExpanded ? "block" : "hidden"}`}>
-        {/* <div className=" w-[40%] mx-auto">
-          <img
-            className={`max-w-full rounded-full`}
-            src={logo}
-            alt="TradeWave logo"
-          />
-        </div> */}
-        <p className={`${isExpanded ? "block" : "hidden"}`}>
-          {" "}
-          <span className="text-3xl">T</span>rade{" "}
-          <span className="text-3xl">W</span>ave
-        </p>
+      
+      <div className="logo text-[0.8rem]">
+        <div className={`flex ${isExpanded ? 'justify-start' : 'justify-center'} bg-[#f0d39d] rounded-md p-2`}>
+          <span className="">
+          <i class="fa-solid fa-tornado"></i>
+          </span>
+          <p className={`${isExpanded ? "block" : "hidden"} ml-2 relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 `}>TradeWave</p>
+        </div>
       </div>
 
       <hr className="mt-5 mb-5 h-2" />
