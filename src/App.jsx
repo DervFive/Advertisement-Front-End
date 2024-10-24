@@ -1,11 +1,11 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
-import VendorLogin from "./pages/vendor/VendorLogin";
-import VendorSignup from "./pages/vendor/VendorSignup";
-import Discretion from "./pages/discretion/Discretion";
-import VendorPrivacy from "./pages/privacyAgreement/VendorPrivacy";
-import CustomerLogin from "./pages/customer/CustomerLogin";
-import CustomerSignup from "./pages/customer/CustomerSignup";
+
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './App.css'
+import VendorLogin from './pages/vendor/VendorLogin'
+import VendorSignup from './pages/vendor/VendorSignup'
+import Discretion from './pages/discretion/Discretion'
+import VendorPrivacy from './pages/privacyAgreement/VendorPrivacy'
 import LandingPage from "./components/LandingPage";
 import VendorLayouts from "./layouts/VendorLayout";
 import VendorOverview from "./pages/dashboards/vendor-dashboard/VendorOverview";
@@ -18,6 +18,10 @@ import CustomerDashboard from "./layouts/CustomerLayout";
 import VendorAdAll from "./pages/dashboards/vendor-dashboard/vendorProducts/VendorAdAll";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import VendorProfile from './pages/vendor/VendorProfile'
+import SingleAdVendor from './pages/vendor/SingleAddVendor'
+
+
 
 function App() {
   const router = createBrowserRouter([
@@ -54,8 +58,8 @@ function App() {
     },
 
     {
-      path: "/discretion",
-      element: <Discretion />,
+      path: '/discretion',
+      element: <Discretion />
     },
     {
       path: "/vendor-Login",
@@ -65,19 +69,17 @@ function App() {
       path: "/vendor-Signup",
       element: <VendorSignup />,
     },
-
+    {
+      path:"/vendor-profile",
+      element: <VendorProfile/>
+    },
+    {
+      path: "/SingleAd-Vendor",
+      element: <SingleAdVendor/>
+    },
     {
       path: "/privacy",
-      element: <VendorPrivacy />,
-    },
-    {
-      path: "/customer-Login",
-      element: <CustomerLogin />,
-    },
-
-    {
-      path: "/customer-Signup",
-      element: <CustomerSignup />,
+      element: <VendorPrivacy />
     },
     {
       path: "/customer-dashboard",
@@ -101,6 +103,6 @@ function App() {
       <RouterProvider router={router} />
     </>
   );
-}
+
 
 export default App;
