@@ -2,7 +2,7 @@ import React from "react";
 
 const VendorPrivacy = () => {
   return (
-    <div className="container mx-auto p-6">
+    <div id="my-popover" popover className="container mx-auto p-6">
       <div className="bg-white shadow-md rounded-lg p-8">
         <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
         <p className="text-gray-600 mb-4">Last Updated: [20th/october/2024]</p>

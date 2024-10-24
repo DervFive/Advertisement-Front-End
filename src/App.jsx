@@ -1,4 +1,5 @@
 
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import VendorLogin from './pages/vendor/VendorLogin'
@@ -13,7 +14,10 @@ import VendorEdit from "./pages/dashboards/vendor-dashboard/VendorEdit";
 import CustomerOverview from "./pages/customer/CustomerOverview";
 import SingleAd from "./pages/customer/SingleAd";
 import About from "./pages/about.jsx/About";
-import CustomerDashboard from './layouts/CustomerLayout'
+import CustomerDashboard from "./layouts/CustomerLayout";
+import VendorAdAll from "./pages/dashboards/vendor-dashboard/vendorProducts/VendorAdAll";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import VendorProfile from './pages/vendor/VendorProfile'
 import SingleAdVendor from './pages/vendor/SingleAddVendor'
 
@@ -46,27 +50,29 @@ function App() {
           path: "about",
           element: <About />,
         },
+        {
+          path: "vendor-ADs",
+          element: <VendorAdAll />,
+        },
       ],
     },
 
     {
       path: '/discretion',
       element: <Discretion />
-
     },
     {
-      path: '/vendor-Login',
-      element: <VendorLogin />
+      path: "/vendor-Login",
+      element: <VendorLogin />,
     },
     {
-      path: '/vendor-Signup',
-      element: <VendorSignup />
+      path: "/vendor-Signup",
+      element: <VendorSignup />,
     },
     {
       path:"/vendor-profile",
       element: <VendorProfile/>
     },
-   
     {
       path: "/SingleAd-Vendor",
       element: <SingleAdVendor/>
@@ -77,7 +83,7 @@ function App() {
     },
     {
       path: "/customer-dashboard",
-      element: <CustomerDashboard/>,
+      element: <CustomerDashboard />,
       children: [
         {
           index: true,
@@ -91,9 +97,12 @@ function App() {
     },
   ]);
 
+  return (
+    <>
+      <ToastContainer />
+      <RouterProvider router={router} />
+    </>
+  );
 
-  return <RouterProvider router={router} />;
-
-}
 
 export default App;
