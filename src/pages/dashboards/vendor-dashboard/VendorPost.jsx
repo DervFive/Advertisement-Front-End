@@ -1,23 +1,23 @@
 import React from "react";
 import { apiPostAds } from "../../../services/products";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const VendorPost = () => {
+
+  const navigate = useNavigate()
+
+
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
 
       const formData = new FormData(event.target);
 
-      const response = await apiPostAds({
-        title: formData.get("title"),
-        price: formData.get("price"),
-        category: formData.get("category"),
-        description: formData.get("description"),
-        image: formData.get("image"),
-      });
+      const response = await apiPostAds(formData);
       console.log(response.data);
-      toast.success('Successful')
+      toast.success('Ad added Successfully')
+      navigate("/vendor-dashboard/vendor-ADs")
     } catch (error) {
       console.log(error)
       toast.error('Failed')

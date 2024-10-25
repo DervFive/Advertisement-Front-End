@@ -9,14 +9,8 @@ if (token) {
 }
 
 export const apiClient = axios.create({
-  baseURL: baseUrl,
+  baseURL: baseURL,
 });
 
-
-
-// const quotesUrl = import.meta.env.VITE_QUOTES_URL;
-// export const quotesClient = axios.create({
-//   baseURL: quotesUrl,
-// });
 
 

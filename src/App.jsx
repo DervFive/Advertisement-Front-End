@@ -1,11 +1,9 @@
-
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './App.css'
-import VendorLogin from './pages/vendor/VendorLogin'
-import VendorSignup from './pages/vendor/VendorSignup'
-import Discretion from './pages/discretion/Discretion'
-import VendorPrivacy from './pages/privacyAgreement/VendorPrivacy'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import VendorLogin from "./pages/vendor/VendorLogin";
+import VendorSignup from "./pages/vendor/VendorSignup";
+import Discretion from "./pages/discretion/Discretion";
+import VendorPrivacy from "./pages/privacyAgreement/VendorPrivacy";
 import LandingPage from "./components/LandingPage";
 import VendorLayouts from "./layouts/VendorLayout";
 import VendorOverview from "./pages/dashboards/vendor-dashboard/VendorOverview";
@@ -18,10 +16,13 @@ import CustomerDashboard from "./layouts/CustomerLayout";
 import VendorAdAll from "./pages/dashboards/vendor-dashboard/vendorProducts/VendorAdAll";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import VendorProfile from './pages/vendor/VendorProfile'
-import SingleAdVendor from './pages/vendor/SingleAddVendor'
-
-
+import VendorProfile from "./pages/vendor/VendorProfile";
+import SingleAdVendor from "./pages/vendor/SingleAddVendor";
+import VendorOrders from "./pages/dashboards/vendor-dashboard/VendorOrders";
+import VendorCoupons from "./pages/dashboards/vendor-dashboard/VendorCoupons";
+import SettingsPage from "./pages/dashboards/vendor-dashboard/SettingsPage";
+import Reviews from "./pages/dashboards/vendor-dashboard/Reviews";
+import Support from "./pages/dashboards/vendor-dashboard/Support";
 
 function App() {
   const router = createBrowserRouter([
@@ -43,7 +44,7 @@ function App() {
           element: <VendorPost />,
         },
         {
-          path: "edit-AD",
+          path: "edit-AD/:adId",
           element: <VendorEdit />,
         },
         {
@@ -54,12 +55,32 @@ function App() {
           path: "vendor-ADs",
           element: <VendorAdAll />,
         },
+        {
+          path: "vendor-orders",
+          element: <VendorOrders />,
+        },
+        {
+          path: "vendor-coupons",
+          element: <VendorCoupons />,
+        },
+        {
+          path: "vendor-settings",
+          element: <SettingsPage />,
+        },
+        {
+          path: "vendor-reviews",
+          element: <Reviews />,
+        },
+        {
+          path: "support",
+          element: <Support />,
+        },
       ],
     },
 
     {
-      path: '/discretion',
-      element: <Discretion />
+      path: "/discretion",
+      element: <Discretion />,
     },
     {
       path: "/vendor-Login",
@@ -70,16 +91,16 @@ function App() {
       element: <VendorSignup />,
     },
     {
-      path:"/vendor-profile",
-      element: <VendorProfile/>
+      path: "/vendor-profile",
+      element: <VendorProfile />,
     },
     {
-      path: "/SingleAd-Vendor",
-      element: <SingleAdVendor/>
+      path: "/Vendor-SingleAd",
+      element: <SingleAdVendor />,
     },
     {
       path: "/privacy",
-      element: <VendorPrivacy />
+      element: <VendorPrivacy />,
     },
     {
       path: "/customer-dashboard",
@@ -103,6 +124,6 @@ function App() {
       <RouterProvider router={router} />
     </>
   );
-
+}
 
 export default App;

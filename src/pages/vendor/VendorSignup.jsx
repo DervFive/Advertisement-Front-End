@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { apiSignup } from "../../services/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const VendorSignup = () => {
   const [loading, setLoading] = useState(false);
@@ -12,29 +13,39 @@ const VendorSignup = () => {
     event.preventDefault();
 
     try {
+      const formData = new FormData(event.target); //   take data from the form
       // prepare data to be sent to backend
       setLoading(true);
-      const firstName = FormData.get("firstName");
-      const LastName = FormData.get("lastName");
-      const userName = FormData.get("userName");
-      const email = FormData.get("email");
-      const password = FormData.get("password");
+      const name = formData.get("name");
+      const phone = formData.get("phone");
+      const businessName = formData.get("businessName");
+      const email = formData.get("email");
+      const password = formData.get("password");
+      const confirmPassword = formData.get("confirmPassword");
+      const location = formData.get("location");
 
-      console.log("firstName", firstName);
+      console.log("firstName", name);
 
       // check if password macth
       // if(password1 !== password2){
       // return
       // }
 
-      const payload = { firstName, LastName, userName, email, password };
-
-      const formData = new FormData(event.target); //   take data from the form
+      const payload = {
+        name,
+        phone,
+        businessName,
+        email,
+        password,
+        confirmPassword,
+        location,
+        role: "vendor",
+      };
 
       const response = await apiSignup(payload);
       console.log(response.data);
-
-      navigate("/login"); // takes the user to the login page
+toast.success("Account Registered Succesfully. Proceed to Log In")
+      navigate("/vendor-Login"); // takes the user to the login page
     } catch (error) {
       // show a toast notification to indicate error
     } finally {
@@ -42,188 +53,161 @@ const VendorSignup = () => {
     }
   };
 
-  
-    return (
-        <div className="text-black text-xs flex flex-col justify-center items-center h-screen">
-            <div className="max-w-sm w-full shadow-lg rounded-lg p-6 bg-white ">
-                <form>
-                    {/* buttons for signup goes here */}
-                    <h1 className="flex justify-center mb-3">Register With</h1>
+  return (
+    <div className="log-in h-full ">
+      <div className="bg-[#ff923e44] w-full h-full flex justify-center items-center ">
+        <div className="text-black text-xs flex flex-col justify-center items-center h-full ">
+          <div className="max-w-sm w-full shadow-lg rounded-lg p-6 bg-white  my-11">
+            <form onSubmit={handleSubmit}>
+              <h1 className="flex justify-center mb-3 text-lg">
+                Register With
+              </h1>
+              <div className="flex font-bold gap-3 mb-8 justify-center">
+                <button className="bg-white border rounded-md w-32 p-2 flex items-center justify-center">
+                  <span className="mr-1">
+                    <i className="fa-brands fa-facebook"></i>
+                  </span>
+                  Facebook
+                </button>
+                <button className="bg-white border rounded-md w-32 p-2 flex items-center justify-center">
+                  <span className="mr-1">
+                    <i className="fa-brands fa-google"></i>
+                  </span>
+                  Google
+                </button>
+                <button className="bg-white border rounded-md w-32 p-2 flex items-center justify-center">
+                  <span className="mr-1">
+                    <i className="fa-brands fa-apple"></i>
+                  </span>
+                  AppleID
+                </button>
+              </div>
 
-                    <div className="flex font-bold gap-3 mb-8">
-                        <button className="bg-white  border rounded-md w-32 p-2"><span className="mr-1"><i class="fa-brands fa-facebook"></i></span>facebook</button>
-                        <button className="bg-white  border rounded-md w-32 p-2"><span className="mr-1"><i class="fa-brands fa-google"></i></span>Google</button>
-                        <button className=" bg-white  border rounded-md w-32"><span className="mr-1"><i class="fa-brands fa-apple"></i></span>AppleID</button>
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="w-full">
+                    <label className="block mb-1">Full Name</label>
+                    <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                      <i className="fa-regular fa-user mr-2"></i>
+                      <input
+                        className="w-full bg-transparent focus:ring-2 focus:ring-black"
+                        type="text"
+                        placeholder="Enter your name"
+                        required
+                        name="name"
+                      />
                     </div>
-
-
-                    <div className="">
-
-                        <div className="flex gap-4">
-                            <div>
-                                <span>Full Name</span>
-                                <div className=" flex justify-start items-center gap-1 w-full bg-white border">
-                                    <span className="font-bold ml-2"><i class="fa-regular fa-user"></i></span>
-                                    <input
-                                        className="w-[95%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-black"
-                                        type="text"
-                                        placeholder="Enter name"
-                                        required
-                                        name="name" />
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className=" ">Phone</span>
-                                <div className=" flex justify-start items-center gap-2 w-full  bg-white borther border">
-                                    <span className="ml-2 font-bold"><i class="fa-regular fa-user"></i></span>
-                                    <input
-                                        className="w-[95%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                                        type="number"
-                                        placeholder="Enter number"
-                                        required
-                                        name="name" />
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <span>Business Name</span>
-
-                        <div className=" flex justify-start items-center gap-2 w-full  bg-white border">
-
-                            <span className="font-bold  ml-2"><i class="fa-regular fa-circle-user"></i></span>
-                            <input
-                                className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                                type="text"
-                                placeholder="Enter Name"
-                                required
-                                name="name" />
-                                /</div>
-
-                        <span>Location</span>
-
-                        <div className=" flex justify-start items-center gap-2 w-full  bg-white border">
-
-                            <span className="font-bold  ml-2"><i class="fa-regular fa-circle-user"></i></span>
-                            <input
-                                className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                                type=""
-                                placeholder="Enter Name"
-                                required
-                                name="name" />
-
-                        </div>
-                        <span>email</span>
-                        <div className=" flex justify-start items-center gap-1 w-full border bg-white "><span className="font-bold  ml-2"><i class="fa-regular fa-envelope"></i></span>
-                            <input
-                                className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                                type="text"
-                                placeholder="Enter email"
-                                required
-                                name="email" />
-                        </div>
-
-                        <span>Password</span>
-                        <div className=" flex justify-start items-center gap-2 w-full  bg-white border ">
-                            <span className="font-bold  ml-2"><i class="fa-solid fa-lock"></i></span>
-                            <input
-                                className="w-[90%]  bg-transparent rounded-lg p-2 focus:ring-2 focus:ring-gray-500"
-                                type="text"
-                                placeholder="Enter password"
-                                required
-                                name="password" />
-                        </div>
-                        <div className=" flex justify-start items-center gap-2 w-full  bg-white border ">
-                            <input
-                                className="w-[90%]  bg-transparent rounded-lg p-2 focus:ring-2 focus:ring-gray-500"
-                                type="text"
-                                placeholder="Confirm password"
-                                required
-                                name="password" />
-                        </div>
+                  </div>
+                  <div className="w-full">
+                    <label className="block mb-1">Phone</label>
+                    <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                      <i className="fa-solid fa-phone mr-2"></i>
+                      <input
+                        className="w-full bg-transparent focus:ring-2 focus:ring-black"
+                        type="tel"
+                        placeholder="Enter phone number"
+                        required
+                        name="phone"
+                      />
                     </div>
-                    <button className=" flex justify-center w-full mt-4 bg-[#F57A49] p-2 rounded-lg">Sign Up</button>
+                  </div>
+                </div>
 
-                    <div className="text-[8px]">
-                        <p>By creating an account you agree to the <span className="font-extrabold underline">Terms and Servicies</span> we'll occasionaly send you account related emails</p>
-                    </div>
+                <div>
+                  <label className="block mb-1">Business Name</label>
+                  <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                    <i className="fa-regular fa-building mr-2"></i>
+                    <input
+                      className="w-full bg-transparent focus:ring-2 focus:ring-black"
+                      type="text"
+                      placeholder="Enter business name"
+                      required
+                      name="businessName"
+                    />
+                  </div>
+                </div>
 
-                    <div className="flex justify-center mt-8">
-                        <span>Already have an account?</span>
-                        <Link to={'/vendor-Login'}><span className="text-[#F57A49]">Login</span></Link>
-                    </div>
+                <div>
+                  <label className="block mb-1">Location</label>
+                  <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                    <i className="fa-solid fa-location-dot mr-2"></i>
+                    <input
+                      className="w-full bg-transparent focus:ring-2 focus:ring-black"
+                      type="text"
+                      placeholder="Enter location"
+                      required
+                      name="location"
+                    />
+                  </div>
+                </div>
 
-                </form>
+                <div>
+                  <label className="block mb-1">Email</label>
+                  <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                    <i className="fa-regular fa-envelope mr-2"></i>
+                    <input
+                      className="w-full bg-transparent focus:ring-2 focus:ring-black"
+                      type="email"
+                      placeholder="Enter your email"
+                      required
+                      name="email"
+                    />
+                  </div>
+                </div>
 
-            </div>
+                <div>
+                  <label className="block mb-1">Password</label>
+                  <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                    <i className="fa-solid fa-lock mr-2"></i>
+                    <input
+                      className="w-full bg-transparent focus:ring-1 focus:ring-black"
+                      type="password"
+                      placeholder="Enter password"
+                      required
+                      name="password"
+                    />
+                  </div>
+                </div>
 
-            <span>UserName</span>
+                <div>
+                  <label className="block mb-1">Confirm Password</label>
+                  <div className="flex items-center gap-1 bg-white border p-2 rounded-md">
+                    <i className="fa-solid fa-lock ml-2"></i>
+                    <input
+                      className="w-full bg-transparent focus:ring-2 focus:ring-black"
+                      type="password"
+                      placeholder="Confirm password"
+                      required
+                      name="confirmPassword"
+                    />
+                  </div>
+                </div>
+              </div>
 
-            <div className=" flex justify-start items-center gap-2 w-full  bg-white border">
-              <span className="font-bold  ml-2">
-                <i class="fa-regular fa-circle-user"></i>
-              </span>
-              <input
-                className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                type="text"
-                placeholder="Enter Name"
-                required
-                name="userName"
-              />
-            </div>
-            <span>email</span>
-            <div className=" flex justify-start items-center gap-1 w-full border bg-white ">
-              <span className="font-bold  ml-2">
-                <i class="fa-regular fa-envelope"></i>
-              </span>
-              <input
-                className="w-[90%] bg-transparent rounded-md p-2 focus:ring-2 focus:ring-gray-500"
-                type="text"
-                placeholder="Enter email"
-                required
-                name="email"
-              />
-            </div>
+              <button
+                type="submit"
+                className="w-full mt-6 bg-[#F57A49] p-2 rounded-lg text-white hover:bg-[#d3513a] hover:text-white duration-300"
+              >
+                Sign Up
+              </button>
 
-            <span>Password</span>
-            <div className=" flex justify-start items-center gap-2 w-full  bg-white border ">
-              <span className="font-bold  ml-2">
-                <i class="fa-solid fa-lock"></i>
-              </span>
-              <input
-                className="w-[90%]  bg-transparent rounded-lg p-2 focus:ring-2 focus:ring-gray-500"
-                type="text"
-                placeholder="Enter password"
-                required
-                name="password"
-              />
-            </div>
+              <div className="text-xs mt-2 text-center">
+                By creating an account you agree to the{" "}
+                <span className="font-bold underline">Terms and Services</span>.
+                We will occasionally send you account-related emails.
+              </div>
+
+              <div className="flex justify-center mt-4 text-sm">
+                <span>Already have an account?</span>
+                <Link to="/vendor-Login">
+                  <span className="text-[#F57A49] ml-2 hover:underline  ">
+                    Login
+                  </span>
+                </Link>
+              </div>
+            </form>
           </div>
-          <button
-            type="submit"
-            className=" flex justify-center w-full mt-4 bg-[#F57A49] p-2 rounded-lg"
-          >
-            Sign Up
-          </button>
-
-          <div className="text-[8px]">
-            <p>
-              By creating an account you agree to the{" "}
-              <span className="font-extrabold underline">
-                Terms and Servicies
-              </span>{" "}
-              we'll occasionaly send you account related emails
-            </p>
-          </div>
-
-          <div className="flex justify-center mt-8">
-            <span>Already have an account?</span>
-            <Link to={"/vendor-Login"}>
-              <span className="text-[#F57A49]">Login</span>
-            </Link>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   );

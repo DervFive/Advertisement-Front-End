@@ -67,3 +67,48 @@ body {
   background-size: cover;
   
 }
+
+
+/* this is where I style the vendor edit form bg-img */
+.vendor-edit-img {
+  background-image: url("./assets/images/update-form-bg.jpg");
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* this is where I style the orders bg */
+.order-bg {
+  background-image: url("./assets/images/undraw_empty_cart_co35.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* this is where I style the coup bg */
+.coup-bg {
+  background-image: url("./assets/images/coupons-bg.png");
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: contain;
+}
+
+
+/* this is where I style the settings bg */
+.settings-bg {
+  background-image: url("./assets/images/settings-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* this is where I style the review bg */
+
+.reviews-bg {
+  background-image: url("./assets/images/reviews.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
