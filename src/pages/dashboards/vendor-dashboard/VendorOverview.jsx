@@ -1,72 +1,83 @@
-// import { useEffect, useState } from "react";
-// import { apiGetProducts } from "../../../services/products";
-
-import Quotes from "../../../components/Quotes";
+import { Link } from "react-router-dom";
 import SearchAndCategories from "../../../components/SearchAndCategories";
 
 const VendorOverview = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-5">
-      <h1 className="mb-[5%] text-4xl font-bold">Welcome Derv5</h1>
-      <Quotes />
+    <div className="flex justify-center items-center flex-col gap-5 p-4 md:p-8">
+      <h1 className="mb-5 text-2xl md:text-4xl font-bold text-center">
+        Welcome Dev5
+      </h1>
       <SearchAndCategories />
 
-      <div className="dash grid grid-cols-4 gap-5">
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg ">
-            <i class="fa-brands fa-product-hunt"></i>
+      <div className="dash grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <Link to={"/vendor-dashboard/vendor-ADs"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-brands fa-product-hunt"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">My Products</p>
           </div>
-          <p className="font-bold text-sm">My Products</p>
-        </div>
+        </Link>
 
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+        <Link to={"/vendor-dashboard/vendor-orders"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-solid fa-cart-flatbed-suitcase"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">Orders</p>
           </div>
-          <p className="font-bold text-sm">Orders</p>
-        </div>
+        </Link>
 
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-folder-plus"></i>
+        <Link to={"/vendor-dashboard/add-AD"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-solid fa-folder-plus"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">Add Product</p>
           </div>
-          <p className="font-bold text-sm">Add Product</p>
-        </div>
+        </Link>
 
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-gift"></i>
+        <Link to={"/vendor-dashboard/vendor-coupons"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-solid fa-gift"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">Coupons</p>
           </div>
-          <p className="font-bold text-sm">Coupons</p>
-        </div>
+        </Link>
 
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-thumbs-up"></i>
+        <Link to={"/vendor-dashboard/vendor-reviews"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-solid fa-thumbs-up"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">Reviews</p>
           </div>
+        </Link>
 
-          <p className="font-bold text-sm">Reviews</p>
-        </div>
-
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-circle-info"></i>
+        <Link to={"/vendor-dashboard/about"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-solid fa-circle-info"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">About</p>
           </div>
-          <p className="font-bold text-sm">About</p>
-        </div>
+        </Link>
 
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-circle-question"></i>
+        <Link to={"/vendor-dashboard/support"}>
+          <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+            <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+              <i className="fa-solid fa-circle-question"></i>
+            </div>
+            <p className="font-bold text-xs sm:text-sm">Support</p>
           </div>
-          <p className="font-bold text-sm">Support</p>
-        </div>
+        </Link>
 
-        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-110 transition-transform duration-[1s]">
-          <div className="icon-container text-5xl p-20 bg-slate-50 rounded shadow-lg">
-            <i class="fa-solid fa-gear"></i>
+        <div className="icon-main flex justify-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300">
+          <div className="icon-container text-3xl sm:text-4xl lg:text-5xl p-10 sm:p-16 lg:p-20 bg-slate-50 rounded shadow-lg">
+            <i className="fa-solid fa-gear"></i>
           </div>
-          <p className="font-bold text-sm">Settings</p>
+          <p className="font-bold text-xs sm:text-sm">Settings</p>
         </div>
       </div>
     </div>
@@ -74,47 +85,3 @@ const VendorOverview = () => {
 };
 
 export default VendorOverview;
-
-{
-  /* <div className="code">
-//   const [products, setProducts] = useState([]);
-
-//   const fetchData = async () => {
-//     const response = await apiGetProducts();
-//     console.log(response.data);
-//     setProducts(response.data.data);
-//   };
-
-//   console.log("pro", products);
-
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
-
-//   if (products.length < 1) {
-//     return <div>loading</div>;
-//   }
-
-//   return (
-//     <> 
-//       {products.map((product) => {
-//         return (
-          
-//           <div className=" content flex justify-center flex-col gap-2 ">
-//           <div className="image-container">
-//             <img
-//               src={product.product_image}
-//               alt={product.name}
-//               className="max-w-full max-h-full rounded-lg"
-//             />
-//           </div>
-
-//           <h3> {product.name} </h3>
-//         </div>
-//         );
-//       })}
-//     </>
-//   );
-// 
-</div> */
-}
