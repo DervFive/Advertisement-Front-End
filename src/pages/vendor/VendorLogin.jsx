@@ -32,7 +32,7 @@ const VendorLogin = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen text-xs">
+    <div className=" log-in flex flex-col justify-center items-center h-screen text-xs">
       <div className="max-w-sm w-full bg-white shadow-lg rounded-lg p-6 border border-black">
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <div className="flex flex-col gap-3">
@@ -54,7 +54,7 @@ const VendorLogin = () => {
             <div>
               <input
                 className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500"
-                type="text"
+                type="password"
                 placeholder="password"
                 required
                 name="password"

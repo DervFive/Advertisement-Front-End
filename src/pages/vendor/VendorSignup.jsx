@@ -44,7 +44,7 @@ const VendorSignup = () => {
 
       const response = await apiSignup(payload);
       console.log(response.data);
-toast.success("Account Registered Succesfully. Proceed to Log In")
+      toast.success("Account Registered Succesfully. Proceed to Log In");
       navigate("/vendor-Login"); // takes the user to the login page
     } catch (error) {
       // show a toast notification to indicate error
@@ -192,9 +192,17 @@ toast.success("Account Registered Succesfully. Proceed to Log In")
               </button>
 
               <div className="text-xs mt-2 text-center">
-                By creating an account you agree to the{" "}
-                <span className="font-bold underline">Terms and Services</span>.
-                We will occasionally send you account-related emails.
+                <input type="checkbox" required id="privacy" />
+                <label htmlFor="privacy">
+                  By creating an account you agree to the{" "}
+                  <Link to={"/privacy"}>
+                    <span className="font-bold underline">
+                      Terms and Services
+                    </span>
+                    .
+                  </Link>
+                  We will occasionally send you account-related emails.
+                </label>
               </div>
 
               <div className="flex justify-center mt-4 text-sm">

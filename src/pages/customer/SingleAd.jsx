@@ -19,7 +19,7 @@ const SingleAd = () => {
 
   useEffect(() => {
     fetchAd()
-  },[])
+  },[id])
 
   return (
     <>
