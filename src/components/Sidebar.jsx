@@ -168,7 +168,7 @@ const Sidebar = () => {
             } bg-[#EEC16D] rounded-md p-2`}
           >
             <span className="">
-            <i className="fa-solid fa-circle-info"></i>
+              <i className="fa-solid fa-circle-info"></i>
             </span>
             <p
               className={`${
@@ -204,11 +204,6 @@ const Sidebar = () => {
 
       <hr className="mt-5 mb-5 h-2" />
 
-      <div className="profile">
-        <div className="here w-[100% ] rounded-[50%]">
-          <p>profile goes here</p>
-        </div>
-      </div>
 
       <p className={`${isExpanded ? "block" : "hidden"}`}>Log Out</p>
     </div>

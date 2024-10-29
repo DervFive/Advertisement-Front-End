@@ -7,15 +7,19 @@ import { toast } from "react-toastify";
 const VendorAdAll = () => {
   const [view, setView] = useState("grid");
   const [ads, setAds] = useState([]);
+  const [isLoading, setLoading] = useState(false)
 
   // Get all ads from backend
   const getVendorAds = async (query = {}) => {
     try {
+      setLoading(true)
       const response = await apiGetVendorAds({ params: query });
       console.log(response.data);
       setAds(response.data);
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -36,12 +40,11 @@ const VendorAdAll = () => {
     getVendorAds();
   }, []);
 
-  if (ads.length < 1) {
-    return <div>Loading...</div>;
-  }
+
 
   return (
     <div className="p-4 md:p-8">
+      {isLoading ? "Loading" : ""}
       <h1 className="text-xl md:text-2xl font-bold mb-6 md:mb-20 text-center md:text-left">
         My Products
       </h1>
@@ -70,7 +73,7 @@ const VendorAdAll = () => {
         <span
           onClick={() => setView("grid")}
           className={`px-2 py-1 rounded bg-[white] hover:bg-[#EEC16D] hover:text-white duration-300 shadow-lg ${
-            view === "grid" ? "bg-[#eea16d] text-black" : ""
+            view === "grid" ? "bg-[#f37f51] text-black" : ""
           }`}
         >
           <i className="fa-solid fa-grip"></i>
@@ -79,7 +82,7 @@ const VendorAdAll = () => {
         <span
           onClick={() => setView("list")}
           className={`px-2 py-1 rounded bg-white hover:bg-[#EEC16D] hover:text-white duration-300 shadow-lg ${
-            view === "list" ? "bg-[#eea16d] text-black" : ""
+            view === "list" ? "bg-[#f37f51] text-black" : ""
           }`}
         >
           <i className="fa-solid fa-list"></i>
@@ -96,7 +99,7 @@ const VendorAdAll = () => {
       >
         {ads.map((ad) => (
           <div
-            key={ad.id}
+            key={ad.user.id}
             className={`${
               view === "list"
                 ? "w-full flex flex-col md:flex-row gap-4 p-4 border-gray-300 rounded-lg bg-white"

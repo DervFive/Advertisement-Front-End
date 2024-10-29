@@ -5,7 +5,7 @@ const VendorOverview = () => {
   return (
     <div className="flex justify-center items-center flex-col gap-5 p-4 md:p-8">
       <h1 className="mb-5 text-2xl md:text-4xl font-bold text-center">
-        Welcome Dev5
+        Welcome
       </h1>
       <SearchAndCategories />
 

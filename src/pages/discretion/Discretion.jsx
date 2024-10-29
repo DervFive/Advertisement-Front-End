@@ -17,7 +17,7 @@ const Discretion = () => {
               </button>
             </Link>
 
-            <Link to={'/customer-Login'} className="w-full">
+            <Link to={'/customer-dashboard'} className="w-full">
               <button className=" py-2 px-4 rounded-lg bg-[#FACB09] hover:text-white hover:bg-[#0EBCF1] transition duration-300 text-center flex justify-center w-full text-[#FE4E51] font-bold ">
                 Customer
               </button>
